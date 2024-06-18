@@ -31,7 +31,7 @@ public class Driver {
         String remote = System.getProperty("remote");
 
         if(remote == null || remote.equals("false")) {
-            WebDriverManager.chromedriver().setup();
+            //WebDriverManager.chromedriver().setup();
             chromeOptions.setCapability("goog:loggingPrefs", loggingPreferences);
             drivers.set(new ChromeDriver(chromeOptions));
         } else if(remote.equals("true")) {

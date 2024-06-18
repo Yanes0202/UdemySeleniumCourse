@@ -1,3 +1,5 @@
+package drafts;
+
 import adrian.com.managers.Driver;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

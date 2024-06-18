@@ -15,7 +15,12 @@ import java.util.Objects;
 public class WaitUtils {
 
     public static int time() {
-        return Integer.parseInt(Objects.requireNonNull(PropertiesUtils.getProperty("src/main/resources/common/time.properties", "waitingTime")));
+        return Integer.parseInt(Objects.requireNonNull(PropertiesUtils.getProperty("src/main/resources/common/time.properties", "waitTime")));
+    }
+
+    public static void untilElementIsInvisible(By by) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time()));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
 
     public static WebElement untilElementIsClickable(By by) {
