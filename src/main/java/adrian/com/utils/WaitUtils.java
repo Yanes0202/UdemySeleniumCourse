@@ -27,13 +27,20 @@ public class WaitUtils {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time()));
         return wait.until(ExpectedConditions.elementToBeClickable(by));
     }
+
     public static WebElement untilElementIsPresent(By by) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time()));
         return wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
+
     public static WebElement untilElementIsVisible(By by) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time()));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+    public static void untilUrlIs(String url) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time()));
+        wait.until(ExpectedConditions.urlToBe(url));
     }
 
     public static boolean ifElementIsVisible(By by){

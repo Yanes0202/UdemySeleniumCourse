@@ -33,6 +33,7 @@ public class Driver {
         if(remote == null || remote.equals("false")) {
             //WebDriverManager.chromedriver().setup();
             chromeOptions.setCapability("goog:loggingPrefs", loggingPreferences);
+            chromeOptions.addArguments("--window-size=1920,1080");
             drivers.set(new ChromeDriver(chromeOptions));
         } else if(remote.equals("true")) {
             ChromeOptions opt = new ChromeOptions();
