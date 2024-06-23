@@ -1,4 +1,4 @@
-package section8;
+package assignments;
 
 import adrian.com.managers.Driver;
 import adrian.com.utils.WaitUtils;
