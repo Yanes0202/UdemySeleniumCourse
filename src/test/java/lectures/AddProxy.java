@@ -1,6 +1,5 @@
-package drafts;
+package lectures;
 
-import adrian.com.managers.Driver;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

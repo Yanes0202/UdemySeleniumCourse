@@ -1,4 +1,4 @@
-package drafts;
+package lectures;
 
 import adrian.com.managers.Driver;
 import org.junit.jupiter.api.Test;
