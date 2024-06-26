@@ -1,6 +1,7 @@
 package assignments;
 
 import adrian.com.managers.Driver;
+import adrian.com.utils.UrlsUtils;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -11,7 +12,7 @@ public class Assignment8 {
     @Test
     void assignment1() throws InterruptedException {
         WebDriver driver = Driver.getDriver();
-        driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+        driver.get(UrlsUtils.getAutomationUrl());
         driver.findElement(By.id("autocomplete")).sendKeys("Uni");
         Thread.sleep(2000);
         driver.findElement(By.id("autocomplete")).sendKeys(Keys.DOWN);

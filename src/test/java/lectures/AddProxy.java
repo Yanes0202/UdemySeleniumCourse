@@ -1,5 +1,6 @@
 package lectures;
 
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,7 +8,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class AddProxy {
 
-    public static void main(String[] args) {
+    @Test
+    void test() {
         // How to add proxy
         ChromeOptions options = new ChromeOptions();
         Proxy proxy = new Proxy();

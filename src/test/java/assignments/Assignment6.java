@@ -1,10 +1,10 @@
 package assignments;
 
 import adrian.com.managers.Driver;
+import adrian.com.utils.UrlsUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -16,7 +16,7 @@ public class Assignment6 {
     @Test
     void assignment1() {
         WebDriver driver = Driver.getDriver();
-        driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+        driver.get(UrlsUtils.getAutomationUrl());
 
         Random random = new Random();
         int randomInt = random.nextInt(3) + 1;

@@ -1,6 +1,7 @@
 package assignments;
 
 import adrian.com.managers.Driver;
+import adrian.com.utils.UrlsUtils;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,7 @@ public class Assignment2 {
     @Test
     void assignment1() {
         WebDriver driver = Driver.getDriver();
-        driver.get("https://rahulshettyacademy.com/angularpractice/");
+        driver.get(UrlsUtils.getAngularUrl());
         driver.findElement(By.name("name")).sendKeys("Test");
         driver.findElement(By.name("email")).sendKeys("test@test.com");
         driver.findElement(By.id("exampleInputPassword1")).sendKeys("test1234");
@@ -24,6 +25,5 @@ public class Assignment2 {
         driver.findElement(By.name("bday")).sendKeys("18062024");
         driver.findElement(By.cssSelector("input[class*='btn-success']")).click();
         System.out.println(driver.findElement(By.cssSelector("div[class*='alert']")).getText());
-
     }
 }

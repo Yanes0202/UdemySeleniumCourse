@@ -1,6 +1,7 @@
 package assignments;
 
 import adrian.com.managers.Driver;
+import adrian.com.utils.UrlsUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -14,7 +15,7 @@ public class Assignment7 {
     @Test
     void assignment1() {
         WebDriver driver = Driver.getDriver();
-        driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+        driver.get(UrlsUtils.getAutomationUrl());
 
         WebElement table = driver.findElement(By.name("courses"));
 

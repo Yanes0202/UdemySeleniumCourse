@@ -1,6 +1,7 @@
 package lectures;
 
 import adrian.com.managers.Driver;
+import adrian.com.utils.UrlsUtils;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,16 +13,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-public class BrokenUrl {
+public class Requests {
 
     @Test
-    void test() throws IOException {
+    void sendingRequests() throws IOException {
         WebDriver driver = Driver.getDriver();
-        driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+        driver.get(UrlsUtils.getAutomationUrl());
         WebElement footer = driver.findElement(By.id("gf-BIG"));
-        List<WebElement> links = footer.findElements(By.tagName("a"));
+        List<WebElement> links = footer.findElements(By.tagName("a")); // reducing number of links to the number in footer
         System.out.println(links.size());
-        SoftAssert softAssert = new SoftAssert();
+        SoftAssert softAssert = new SoftAssert(); // using soft assertion to get all the results
         for (WebElement l : links) {
             String url = l.getAttribute("href");
             HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();

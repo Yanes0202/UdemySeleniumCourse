@@ -1,6 +1,7 @@
 package lectures;
 
 import adrian.com.managers.Driver;
+import adrian.com.utils.UrlsUtils;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,9 +9,9 @@ import org.openqa.selenium.WebDriver;
 public class Alerts {
 
     @Test
-    void alerts() {
+    void handlingAlerts() {
         WebDriver driver = Driver.getDriver();
-        driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+        driver.get(UrlsUtils.getAutomationUrl());
         driver.findElement(By.id("name")).sendKeys("Name");
         driver.findElement(By.id("alertbtn")).click();
         System.out.println(driver.switchTo().alert().getText());

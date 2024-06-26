@@ -6,4 +6,16 @@ public class UrlsUtils {
     public static String getLocatorsUrl() {
         return PropertiesUtils.getProperty(urlPath, "locatorsUrl");
     }
+
+    public static String getAutomationUrl() {
+        return PropertiesUtils.getProperty(urlPath, "automationUrl");
+    }
+
+    public static String getAngularUrl() {
+        return PropertiesUtils.getProperty(urlPath, "angularUrl");
+    }
+
+    public static String getLoginPageUrl() {
+        return PropertiesUtils.getProperty(urlPath, "loginPageUrl");
+    }
 }

@@ -1,6 +1,7 @@
 package lectures;
 
 import adrian.com.managers.Driver;
+import adrian.com.utils.UrlsUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -15,7 +16,7 @@ public class Scrolling {
     @Test
     void scrolling() {
         WebDriver driver = Driver.getDriver();
-        driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+        driver.get(UrlsUtils.getAutomationUrl());
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         //  scroll page down
@@ -31,6 +32,5 @@ public class Scrolling {
         int expected = Integer.parseInt(driver.findElement(By.cssSelector(".totalAmount")).getText().split(":")[1].trim());
 
         Assertions.assertEquals(actual, expected);
-
     }
 }

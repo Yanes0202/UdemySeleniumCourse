@@ -1,6 +1,7 @@
 package assignments;
 
 import adrian.com.managers.Driver;
+import adrian.com.utils.UrlsUtils;
 import adrian.com.utils.WaitUtils;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -15,10 +16,10 @@ public class Assignment3 {
 
 
     @Test
-    void assignment1() throws InterruptedException {
+    void assignment1() {
         WebDriver driver = Driver.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.get("https://rahulshettyacademy.com/loginpagePractise/");
+        driver.get(UrlsUtils.getLoginPageUrl());
         driver.findElement(By.name("username")).sendKeys("rahulshettyacademy");
         driver.findElement(By.name("password")).sendKeys("learning");
         driver.findElement(By.xpath("//span[contains(text(),'User')]/following-sibling::input")).click();
@@ -28,7 +29,7 @@ public class Assignment3 {
         dropDown.selectByIndex(2);
         driver.findElement(By.id("terms")).click();
         driver.findElement(By.id("signInBtn")).click();
-        WaitUtils.untilUrlIs("https://rahulshettyacademy.com/angularpractice/shop");
+        WaitUtils.untilUrlIs(UrlsUtils.getAngularUrl() + "/shop");
         List<WebElement> elements = driver.findElements(By.xpath("//button[contains(text(),'Add')]"));
         elements.forEach(WebElement::click);
         driver.findElement(By.xpath("//a[contains(text(),'Checkout')]")).click();
