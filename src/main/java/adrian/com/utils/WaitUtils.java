@@ -3,6 +3,7 @@ package adrian.com.utils;
 import adrian.com.managers.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,6 +22,11 @@ public class WaitUtils {
     public static void untilElementIsInvisible(By by) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time()));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+    }
+
+    public static void untilElementIsInvisible(WebDriver driver, By by) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time()));
+        wait.until(ExpectedConditions.invisibilityOf(driver.findElement(by)));
     }
 
     public static WebElement untilElementIsClickable(By by) {

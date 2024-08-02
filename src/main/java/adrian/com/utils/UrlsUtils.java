@@ -18,4 +18,8 @@ public class UrlsUtils {
     public static String getLoginPageUrl() {
         return PropertiesUtils.getProperty(urlPath, "loginPageUrl");
     }
+
+    public static String getE2EPageUrl() {
+        return PropertiesUtils.getProperty(urlPath, "e2ePage");
+    }
 }
