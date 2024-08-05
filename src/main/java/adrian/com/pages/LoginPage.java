@@ -30,7 +30,7 @@ public class LoginPage {
     @FindBy(className = "invalid-feedback")
     WebElement incorrectEmailMessage;
 
-    private void logIn(String email, String password) {
+    private void executeLogIn(String email, String password) {
         driver.get(UrlsUtils.getE2EPageUrl());
         userEmail.sendKeys(email);
         userPassword.sendKeys(password);
@@ -40,20 +40,25 @@ public class LoginPage {
     public ProductsPage logIn() {
         String email = PropertiesUtils.getProperty(propertiesFilePath, "email");
         String password = PropertiesUtils.getProperty(propertiesFilePath, "password");
-        logIn(email, password);
+        executeLogIn(email, password);
+        return new ProductsPage(driver);
+    }
+
+    public ProductsPage logIn(String email, String password) {
+        executeLogIn(email, password);
         return new ProductsPage(driver);
     }
 
     public void incorrectCredentials() {
         String email = PropertiesUtils.getProperty(propertiesFilePath, "incorrectEmail");
         String  password = PropertiesUtils.getProperty(propertiesFilePath, "incorrectPassword");
-        logIn(email, password);
+        executeLogIn(email, password);
     }
 
     public void incorrectEmail() {
         String email = PropertiesUtils.getProperty(propertiesFilePath, "wrongEmail");
         String  password = PropertiesUtils.getProperty(propertiesFilePath, "incorrectPassword");
-        logIn(email, password);
+        executeLogIn(email, password);
     }
 
     public String getErrorMessage() {
