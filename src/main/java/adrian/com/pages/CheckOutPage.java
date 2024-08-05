@@ -1,6 +1,5 @@
 package adrian.com.pages;
 
-import adrian.com.managers.Driver;
 import adrian.com.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,10 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CheckOutPage extends AbstractPage {
 
-    WebDriver driver;
-
-    public CheckOutPage() {
-        this.driver = Driver.getDriver();
+    public CheckOutPage(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -29,13 +26,12 @@ public class CheckOutPage extends AbstractPage {
     public void selectCountry(String countryName) {
         Actions actions = new Actions(driver);
         actions.sendKeys(country, countryName).build().perform();
-        WaitUtils.untilElementIsClickable(selectedCountryBy).click();
+        WaitUtils.untilElementIsClickable(driver, selectedCountryBy).click();
     }
 
     public ConfirmationPage goToConfirmationPage() {
         submitButton.click();
-        WaitUtils.ifElementIsVisible(By.tagName("h1"));
-        return new ConfirmationPage();
+        WaitUtils.ifElementIsVisible(driver, By.tagName("h1"));
+        return new ConfirmationPage(driver);
     }
-
 }

@@ -23,7 +23,7 @@ public class LocatorsTest extends AbstractTest {
         String text = driver.findElement(By.cssSelector("p.error")).getText();
         System.out.println(text);
         driver.findElement(By.linkText("Forgot your password?")).click();
-        WaitUtils.untilElementIsVisible(By.xpath("//input[@placeholder='Name']"));
+        WaitUtils.untilElementIsVisible(driver, By.xpath("//input[@placeholder='Name']"));
         driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("John");
         driver.findElement(By.cssSelector("input[placeholder='Email']")).sendKeys("john@rsa.com");
         driver.findElement(By.xpath("//input[@type='text'][2]")).clear();

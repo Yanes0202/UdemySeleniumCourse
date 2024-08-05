@@ -25,7 +25,7 @@ public class WaitUtils {
     }
 
     public static void untilElementIsInvisible(WebDriver driver, By by) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time()));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time()));
         wait.until(ExpectedConditions.invisibilityOf(driver.findElement(by)));
     }
 
@@ -34,14 +34,34 @@ public class WaitUtils {
         return wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 
+    public static WebElement untilElementIsClickable(WebDriver driver, By by) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time()));
+        return wait.until(ExpectedConditions.elementToBeClickable(by));
+    }
+
+    public static WebElement untilElementIsClickable(WebDriver driver, WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time()));
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
     public static WebElement untilElementIsPresent(By by) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time()));
         return wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
-    public static WebElement untilElementIsVisible(By by) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time()));
+    public static WebElement untilElementIsPresent(WebDriver driver, By by) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time()));
+        return wait.until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
+    public static WebElement untilElementIsVisible(WebDriver driver, By by) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time()));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+    public static WebElement untilElementIsVisible(WebDriver driver, WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time()));
+        return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     public static void untilUrlIs(String url) {
@@ -49,18 +69,18 @@ public class WaitUtils {
         wait.until(ExpectedConditions.urlToBe(url));
     }
 
-    public static boolean ifElementIsVisible(By by){
-        try { untilElementIsVisible(by);
+    public static boolean ifElementIsVisible(WebDriver driver, By by){
+        try { untilElementIsVisible(driver, by);
         } catch (TimeoutException e) {
             return false;
         }
         return true;
     }
 
-    public static void forElementTextEqualString(By by, String expectedText) {
+    public static void forElementTextEqualString(WebDriver driver, By by, String expectedText) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time()));
         ExpectedCondition<Boolean> elementEqualsString =
-                arg0 -> untilElementIsVisible(by).getText().contains(expectedText);
+                arg0 -> untilElementIsVisible(driver, by).getText().contains(expectedText);
         wait.until(elementEqualsString);
     }
 

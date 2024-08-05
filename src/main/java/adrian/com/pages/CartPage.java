@@ -1,6 +1,5 @@
 package adrian.com.pages;
 
-import adrian.com.managers.Driver;
 import adrian.com.utils.WaitUtils;
 import lombok.Getter;
 import org.openqa.selenium.By;
@@ -12,10 +11,9 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class CartPage extends AbstractPage {
-    WebDriver driver;
 
-    public CartPage() {
-        this.driver = Driver.getDriver();
+    public CartPage(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -37,8 +35,7 @@ public class CartPage extends AbstractPage {
 
     public CheckOutPage goToCheckOut() {
         checkOutButton.click();
-        WaitUtils.untilElementIsClickable(By.className("payment"));
-        return new CheckOutPage();
+        WaitUtils.untilElementIsClickable(driver, By.className("payment"));
+        return new CheckOutPage(driver);
     }
-
 }
