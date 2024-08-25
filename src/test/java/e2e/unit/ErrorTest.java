@@ -2,16 +2,17 @@ package e2e.unit;
 
 import adrian.com.pages.LoginPage;
 import e2e.AbstractTest;
+import e2e.reports.testNGAndExtentReport.Retry;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ErrorTest extends AbstractTest {
 
-    @Test(groups = "ErrorHandling")
+    @Test(groups = "ErrorHandling", retryAnalyzer = Retry.class)
     void incorrectCredentials() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.incorrectCredentials();
-        Assert.assertEquals("Incorrect email or password.", loginPage.getErrorMessage());
+        Assert.assertEquals("Incorrect email password.", loginPage.getErrorMessage());
     }
 
     @Test

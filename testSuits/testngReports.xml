@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ExtentReports" parallel="tests">
+    <listeners>
+        <listener class-name="e2e.reports.testNGAndExtentReport.Listeners"></listener>
+    </listeners>
+    <test thread-count="5" name="Error Validations">
+        <classes>
+            <class name="e2e.unit.ErrorTest"/>
+        </classes>
+    </test>
+    <test thread-count="5" name="Submit Order Test">
+        <classes>
+            <class name="e2e.unit.OrdersTest"/>
+        </classes>
+    </test>
+</suite>

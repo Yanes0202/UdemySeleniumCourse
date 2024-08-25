@@ -1,5 +1,6 @@
 package e2e;
 
+import adrian.com.managers.Driver;
 import adrian.com.pages.LoginPage;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -20,7 +21,7 @@ public abstract class AbstractTest {
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
-        driver = new ChromeDriver();
+        driver = Driver.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         loginPage = new LoginPage(driver);
@@ -28,13 +29,13 @@ public abstract class AbstractTest {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
-        driver.quit();
+        Driver.quitDriver();
     }
 
-    public String  getScreenShot(String testCaseName) throws IOException {
+    public String getScreenShot(WebDriver driver, String testCaseName) throws IOException {
         TakesScreenshot ts = (TakesScreenshot) driver;
         File source = ts.getScreenshotAs(OutputType.FILE);
-        File file = new File(System.getProperty("user.dir") + "target/reports" + testCaseName + ".png");
+        File file = new File(System.getProperty("user.dir") + "/target/reports/" + testCaseName + ".png");
         FileUtils.copyFile(source, file);
         return System.getProperty("user.dir") + "target/reports" + testCaseName + ".png";
     }

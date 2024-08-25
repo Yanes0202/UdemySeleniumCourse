@@ -4,7 +4,7 @@ import adrian.com.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class AbstractPage {
+public abstract class AbstractPage {
 
     WebDriver driver;
 

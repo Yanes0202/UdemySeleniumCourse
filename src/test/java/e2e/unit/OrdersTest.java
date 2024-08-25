@@ -2,10 +2,7 @@ package e2e.unit;
 
 import adrian.com.pages.*;
 import adrian.com.utils.ConvertUtils;
-import adrian.com.utils.JsonUtils;
-import com.fasterxml.jackson.databind.JsonNode;
 import e2e.AbstractTest;
-import net.bytebuddy.jar.asm.TypeReference;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
