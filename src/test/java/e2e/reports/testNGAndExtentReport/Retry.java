@@ -17,7 +17,6 @@ public class Retry implements IRetryAnalyzer  {
             count++;
             return true;
         }
-
         return false;
     }
 }
