@@ -43,7 +43,7 @@ public class Listeners extends AbstractTest implements ITestListener {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        test.addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
+        extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
     }
 
     @Override

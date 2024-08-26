@@ -6,7 +6,6 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -18,6 +17,7 @@ public abstract class AbstractTest {
 
     public WebDriver driver;
     protected static LoginPage loginPage;
+    private static String screenshotPath = System.getProperty("user.dir") + "/src/test/java/resources/reports/screenshots/%s.png";
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
@@ -35,8 +35,8 @@ public abstract class AbstractTest {
     public String getScreenShot(WebDriver driver, String testCaseName) throws IOException {
         TakesScreenshot ts = (TakesScreenshot) driver;
         File source = ts.getScreenshotAs(OutputType.FILE);
-        File file = new File(System.getProperty("user.dir") + "/target/reports/" + testCaseName + ".png");
+        File file = new File(screenshotPath.formatted(testCaseName));
         FileUtils.copyFile(source, file);
-        return System.getProperty("user.dir") + "target/reports" + testCaseName + ".png";
+        return screenshotPath.formatted(testCaseName);
     }
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ExtentReportsTest">
+    <listeners>
+        <listener class-name="e2e.reports.testNGAndExtentReport.Listeners"/>
+    </listeners>
+    <test name="Extent Report Demo">
+        <classes>
+            <class name="e2e.reports.testNGAndExtentReport.ExtentReportDemo"/>
+        </classes>
+    </test>
+</suite>

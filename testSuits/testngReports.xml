@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="ExtentReports" parallel="tests">
     <listeners>
-        <listener class-name="e2e.reports.testNGAndExtentReport.Listeners"></listener>
+        <listener class-name="e2e.reports.testNGAndExtentReport.Listeners"/>
     </listeners>
     <test thread-count="5" name="Error Validations">
         <classes>
