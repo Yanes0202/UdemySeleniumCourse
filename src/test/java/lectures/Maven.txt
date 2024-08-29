@@ -1,0 +1,83 @@
+I. System property using maven command:
+
+mvn -D[PROPERTY_NAME]=[PROPERTY_VALUE]
+
+Example:
+command:
+mvn -Dbrowser=chrome
+code:
+String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : PropertiesUtils.getProperty(propertiesFilePath, "browser")
+
+
+
+
+
+
+
+
+
+* To run TESTNG tests suits using maven commands, you need to add plugin in pom.xml file:
+
+<plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.4.0</version>
+        <configuration>
+            <suiteXmlFiles>
+                <suiteXmlFile>[PATH_TO_XML_SUITE_FILE]</suiteXmlFile>
+            </suiteXmlFiles>
+        </configuration>
+    </plugin>
+</plugins>
+
+* Also, we can add profiles for each suite that we have, then it looks like this:
+
+<profiles>
+        <profile>
+            <id>Regression</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <version>3.4.0</version>
+                            <configuration>
+                                <suiteXmlFiles>
+                                    <suiteXmlFile>testSuits/testng.xml</suiteXmlFile>
+                                </suiteXmlFiles>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+        <profile>
+            <id>testngReports</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <version>3.4.0</version>
+                            <configuration>
+                                <suiteXmlFiles>
+                                    <suiteXmlFile>testSuits/testngReports.xml</suiteXmlFile>
+                                </suiteXmlFiles>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+</profiles>
+
+* To use profiles in command prompt we need to execute this command (In command line you need to be in project path):
+
+mvn test -PRegression
+
+-P stands for profile name
+
+

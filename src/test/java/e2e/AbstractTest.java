@@ -17,7 +17,7 @@ public abstract class AbstractTest {
 
     public WebDriver driver;
     protected static LoginPage loginPage;
-    private static String screenshotPath = System.getProperty("user.dir") + "/src/test/java/resources/reports/screenshots/%s.png";
+    private static final String screenshotPath = System.getProperty("user.dir") + "/src/test/java/resources/reports/screenshots/%s.png";
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
