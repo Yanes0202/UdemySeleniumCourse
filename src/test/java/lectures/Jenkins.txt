@@ -1,0 +1,31 @@
+Step-by-step guide how to set up GitHub hooks with Jenkins:
+
+To use Jenkins locally you need to download jenkins.war file, after that you can run this by using "java -jar [fileName].war" command.
+You can also add "java -jar [fileName].war --httpPort=9090" to change port of the jenkins
+For the first login you will get credentials in console.
+Access jenkins by typing http://localhost:9090/ in the browser.
+Let jenkins download required plugins and additionally add Maven Integration.
+Download maven bin file and paste it somewhere in your computer.
+Go to system environment variables and add MAVEN_HOME variable with the path to maven file.
+Edit system environment variable "Path" and add %MAVEN_HOME%\bin to it.
+In jenkins manage/configureTools/ find Maven tab and type a maven name and paste MAVEN_HOME from your computer.
+You can also mark install automatically, install from apache and chose version of the maven (had some difficulties without this one)
+Add new jenkins project, set code repository to git and paste a path from your github.
+Now, in github go to settings/developer settings/personal access tokens.
+Generate new personal access token (classic) write a note, give all scopes and save.
+Copy this token, go back to jenkins and under github url link, below Credentials Click add and Jenkins.
+In Kind select "secret text", paste text to secret and press "add" button.
+!IMPORTANT! Remember to mark as set "GitHub hook trigger for GITScm polling" option in Build trigger tab
+In Build tab you can set up maven command in "Goals and options" for example: "test -PRegression"
+!IMPORTANT! In Build tab in advanced settings set "Settings file" to "Use default maven settings"
+Save project.
+Try to run it.
+To be able to make this work you need to redirect from your local to the public web, you can do it using ngrok.
+Create account there and go with their instructions: download ngrok and add auth token using their command and deploy app online "ngrok http http://localhost:[YOUR PORTS]".
+Console should give you this information "Forwarding                    https://4fad-31-182-252-52.ngrok-free.app -> http://localhost:9090 ".
+This left url is where your app is forwarded to, copy it.
+Now in jenkins go to manage/system GitHub tab, advanced and click "Specify another hook URL for GitHub configuration" you should be able to see the link to webhook.
+It should look like this "http://localhost:8080/github-webhook/" now take forwarded url and add /github-webhook/ to it.
+Unmark "Specify another hook URL for GitHub configuration".
+In github repository settings/webhooks click add webhook, paste combined url and save.
+Try to make some changes in the code and see if it works.
