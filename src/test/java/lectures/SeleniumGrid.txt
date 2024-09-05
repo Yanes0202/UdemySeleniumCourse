@@ -1,0 +1,12 @@
+Selenium Grid is used to run test in parallel in different machines.
+
+We have a few grid roles:
+Standalone, Hub Node, Distributed
+
+1. Go to Selenium official download page and download Selenium Server.
+2. Create a folder and paste downloaded jar to it.
+3. Open terminal in the folder and then execute "java -jar [jarName] hub".
+4. To check if Grid works type "http://localhost:4444/".
+5. Add to Selenium Grid folder all drivers that you want to use (ChromeDriver, EdgeDriver etc.).
+6. Do not close previous terminal open new tab and execute "java -jar [jarName] node --detect-drivers true".
+
