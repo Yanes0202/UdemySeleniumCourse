@@ -1,0 +1,30 @@
+Selenium Grid is used to run test in parallel on different machines.
+
+We have a few grid roles:
+Standalone, Hub-Node, Distributed
+
+Here we focus on Hub-Node
+1. Go to Selenium official download page and download Selenium Server.
+2. Create a folder and paste downloaded jar to it.
+3. Open terminal in the folder and then execute "java -jar [jarName] hub".
+HERE IS EXAMPLE RESULT:
+23:01:02.738 INFO [LoggingOptions.configureLogEncoding] - Using the system default encoding
+23:01:02.744 INFO [OpenTelemetryTracer.createTracer] - Using OpenTelemetry for tracing
+23:01:02.972 INFO [BoundZmqEventBus.<init>] - XPUB binding to [binding to tcp://*:4442, advertising as tcp://192.168.56.1:4442], XSUB binding to [binding to tcp://*:4443, advertising as tcp://192.168.56.1:4443]
+23:01:03.036 INFO [UnboundZmqEventBus.<init>] - Connecting to tcp://192.168.56.1:4442 and tcp://192.168.56.1:4443
+23:01:03.061 INFO [UnboundZmqEventBus.<init>] - Sockets created
+23:01:04.079 INFO [UnboundZmqEventBus.<init>] - Event bus ready
+23:01:04.807 INFO [Hub.execute] - Started Selenium Hub 4.24.0 (revision 748ffc9bc3): http://192.168.56.1:4444
+
+4. To check if Grid works type "http://localhost:4444/".
+5. Add to Selenium Grid folder all drivers that you want to use (ChromeDriver, EdgeDriver etc.).
+6. Do not close previous terminal open new tab and execute "java -jar [jarName] node --detect-drivers true".
+7. Now you should be connected to the other machine and have there desired drivers (chrome or firefox) and selenium jar.
+8. Open console in jar folder and execute
+"java -jar [jarName] node --detect-drivers true --publish-events tcp://[HUB_IP]:[HUB_XPUB_PORT] --subscribe-events tcp://[HUB_IP]:[HUB_XSUB_PORT]".
+
+9. Connect that many nodes you want.
+10. Now create repo with automation tests and set up WebDriver using RemoteWebDriver class example in GoogleTest and RSATest class.
+11. You can run automation using testng xml files.
+
+
