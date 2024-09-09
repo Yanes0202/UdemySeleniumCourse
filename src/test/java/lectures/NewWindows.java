@@ -17,7 +17,7 @@ public class NewWindows {
     @Test
     void tab() {
         WebDriver driver = Driver.getDriver();
-        driver.get(UrlsUtils.getAngularUrl());
+        driver.get(UrlsUtils.getAngularPageUrl());
 
         driver.switchTo().newWindow(WindowType.TAB); //opening new tab
         Set<String> windows = driver.getWindowHandles();
@@ -37,7 +37,7 @@ public class NewWindows {
     @Test
     void windows() {
         WebDriver driver = Driver.getDriver();
-        driver.get(UrlsUtils.getAngularUrl());
+        driver.get(UrlsUtils.getAngularPageUrl());
 
         driver.switchTo().newWindow(WindowType.WINDOW); //opening new window
         Set<String> windows = driver.getWindowHandles();

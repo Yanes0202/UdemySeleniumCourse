@@ -2,7 +2,7 @@ package e2e.unit;
 
 import adrian.com.pages.LoginPage;
 import e2e.AbstractTest;
-import e2e.reports.testNGAndExtentReport.Retry;
+import lectures.reports.testNGAndExtentReport.Retry;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

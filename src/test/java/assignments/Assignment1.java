@@ -12,7 +12,7 @@ public class Assignment1 {
     @Test
     void firstAssignment() throws InterruptedException {
         WebDriver driver = Driver.getDriver();
-        driver.get(UrlsUtils.getAutomationUrl());
+        driver.get(UrlsUtils.getAutomationPageUrl());
         driver.findElement(By.id("checkBoxOption1")).click();
         Assertions.assertTrue(driver.findElement(By.id("checkBoxOption1")).isSelected());
         driver.findElement(By.id("checkBoxOption1")).click();
@@ -23,7 +23,7 @@ public class Assignment1 {
     @Test
     void secondAssignment() {
         WebDriver driver = Driver.getDriver();
-        driver.get(UrlsUtils.getAutomationUrl());
+        driver.get(UrlsUtils.getAutomationPageUrl());
         System.out.println(driver.findElements(By.cssSelector("input[type='checkbox']")).size());
     }
 }

@@ -17,7 +17,7 @@ public class UIValidations {
     static void driverInit() {
         driver = Driver.getDriver();
         driver.manage().window().maximize(); // Not mandatory but may be important for correct validations of ui elements
-        driver.get(UrlsUtils.getAngularUrl());
+        driver.get(UrlsUtils.getAngularPageUrl());
     }
 
     @Test

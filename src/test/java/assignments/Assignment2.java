@@ -13,7 +13,7 @@ public class Assignment2 {
     @Test
     void assignment1() {
         WebDriver driver = Driver.getDriver();
-        driver.get(UrlsUtils.getAngularUrl());
+        driver.get(UrlsUtils.getAngularPageUrl());
         driver.findElement(By.name("name")).sendKeys("Test");
         driver.findElement(By.name("email")).sendKeys("test@test.com");
         driver.findElement(By.id("exampleInputPassword1")).sendKeys("test1234");

@@ -1,4 +1,4 @@
-package e2e.reports.testNGAndExtentReport;
+package lectures.reports.testNGAndExtentReport;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;

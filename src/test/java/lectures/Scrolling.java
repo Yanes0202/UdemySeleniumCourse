@@ -16,7 +16,7 @@ public class Scrolling {
     @Test
     void scrolling() {
         WebDriver driver = Driver.getDriver();
-        driver.get(UrlsUtils.getAutomationUrl());
+        driver.get(UrlsUtils.getAutomationPageUrl());
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         //  scroll page down

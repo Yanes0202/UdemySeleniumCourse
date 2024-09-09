@@ -22,7 +22,7 @@ public class FriendlyLocators {
     @BeforeAll
     static void driverInit() {
         driver = Driver.getDriver();
-        driver.get(UrlsUtils.getAngularUrl());
+        driver.get(UrlsUtils.getAngularPageUrl());
     }
 
     @Test

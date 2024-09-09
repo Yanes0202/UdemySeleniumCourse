@@ -14,7 +14,7 @@ public class LocatorsTest extends AbstractTest {
     @Test
     void waitUntil() {
         WebDriver driver = Driver.getDriver();
-        String url = UrlsUtils.getLocatorsUrl();
+        String url = UrlsUtils.getLocatorsPageUrl();
         driver.get(url);
         driver.findElement(By.id("inputUsername")).sendKeys("rahul");
         driver.findElement(By.name("inputPassword")).sendKeys("hello123");
@@ -40,7 +40,7 @@ public class LocatorsTest extends AbstractTest {
     void implicitWait() throws InterruptedException {
         WebDriver driver = Driver.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        String url = UrlsUtils.getLocatorsUrl();
+        String url = UrlsUtils.getLocatorsPageUrl();
         driver.get(url);
         driver.findElement(By.id("inputUsername")).sendKeys("rahul");
         driver.findElement(By.name("inputPassword")).sendKeys("hello123");

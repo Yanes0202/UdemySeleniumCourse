@@ -1,4 +1,4 @@
-package e2e.reports.testNGAndExtentReport;
+package lectures.reports.testNGAndExtentReport;
 
 import e2e.AbstractTest;
 import org.testng.Assert;

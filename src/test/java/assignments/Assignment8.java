@@ -12,7 +12,7 @@ public class Assignment8 {
     @Test
     void assignment1() throws InterruptedException {
         WebDriver driver = Driver.getDriver();
-        driver.get(UrlsUtils.getAutomationUrl());
+        driver.get(UrlsUtils.getAutomationPageUrl());
         driver.findElement(By.id("autocomplete")).sendKeys("Uni");
         Thread.sleep(2000);
         driver.findElement(By.id("autocomplete")).sendKeys(Keys.DOWN);

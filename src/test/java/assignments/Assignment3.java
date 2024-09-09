@@ -29,7 +29,7 @@ public class Assignment3 {
         dropDown.selectByIndex(2);
         driver.findElement(By.id("terms")).click();
         driver.findElement(By.id("signInBtn")).click();
-        WaitUtils.untilUrlIs(UrlsUtils.getAngularUrl() + "/shop");
+        WaitUtils.untilUrlIs(UrlsUtils.getAngularPageUrl() + "/shop");
         List<WebElement> elements = driver.findElements(By.xpath("//button[contains(text(),'Add')]"));
         elements.forEach(WebElement::click);
         driver.findElement(By.xpath("//a[contains(text(),'Checkout')]")).click();

@@ -16,7 +16,7 @@ public class Assignment6 {
     @Test
     void assignment1() {
         WebDriver driver = Driver.getDriver();
-        driver.get(UrlsUtils.getAutomationUrl());
+        driver.get(UrlsUtils.getAutomationPageUrl());
 
         Random random = new Random();
         int randomInt = random.nextInt(3) + 1;

@@ -17,7 +17,7 @@ public class CheckingLinks {
     @Test
     void test() {
         WebDriver driver = Driver.getDriver();
-        driver.get(UrlsUtils.getAutomationUrl());
+        driver.get(UrlsUtils.getAutomationPageUrl());
         int linksOnSite = driver.findElements(By.tagName("a")).size();
 
         Assert.assertEquals(linksOnSite, 27);

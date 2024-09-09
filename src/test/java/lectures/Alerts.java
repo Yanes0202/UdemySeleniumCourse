@@ -11,7 +11,7 @@ public class Alerts {
     @Test
     void handlingAlerts() {
         WebDriver driver = Driver.getDriver();
-        driver.get(UrlsUtils.getAutomationUrl());
+        driver.get(UrlsUtils.getAutomationPageUrl());
         driver.findElement(By.id("name")).sendKeys("Name");
         driver.findElement(By.id("alertbtn")).click();
         System.out.println(driver.switchTo().alert().getText());

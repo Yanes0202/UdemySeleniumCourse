@@ -18,7 +18,7 @@ public class Requests {
     @Test
     void sendingRequests() throws IOException {
         WebDriver driver = Driver.getDriver();
-        driver.get(UrlsUtils.getAutomationUrl());
+        driver.get(UrlsUtils.getAutomationPageUrl());
         WebElement footer = driver.findElement(By.id("gf-BIG"));
         List<WebElement> links = footer.findElements(By.tagName("a")); // reducing number of links to the number in footer
         System.out.println(links.size());

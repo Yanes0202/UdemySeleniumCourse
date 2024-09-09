@@ -15,7 +15,7 @@ public class Assignment7 {
     @Test
     void assignment1() {
         WebDriver driver = Driver.getDriver();
-        driver.get(UrlsUtils.getAutomationUrl());
+        driver.get(UrlsUtils.getAutomationPageUrl());
 
         WebElement table = driver.findElement(By.name("courses"));
 

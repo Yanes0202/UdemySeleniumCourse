@@ -29,7 +29,7 @@ public class ScreenShots {
     @Test
     void webElementSS() throws IOException {
         WebDriver driver = Driver.getDriver();
-        driver.get(UrlsUtils.getAngularUrl());
+        driver.get(UrlsUtils.getAngularPageUrl());
 
         WebElement nameInput = driver.findElement(By.cssSelector("[name='name']"));
         nameInput.sendKeys("Java Test Automation");

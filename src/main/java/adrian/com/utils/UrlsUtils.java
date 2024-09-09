@@ -3,16 +3,20 @@ package adrian.com.utils;
 public class UrlsUtils {
     private static final String urlPath = "src/main/resources/urls/urls.properties";
 
-    public static String getLocatorsUrl() {
-        return PropertiesUtils.getProperty(urlPath, "locators");
+    public static String getLocatorsPageUrl() {
+        return PropertiesUtils.getProperty(urlPath, "locatorsPage");
     }
 
-    public static String getAutomationUrl() {
-        return PropertiesUtils.getProperty(urlPath, "automation");
+    public static String getAutomationPageUrl() {
+        return PropertiesUtils.getProperty(urlPath, "automationPage");
     }
 
-    public static String getAngularUrl() {
-        return PropertiesUtils.getProperty(urlPath, "angular");
+    public static String getAngularPageUrl() {
+        return PropertiesUtils.getProperty(urlPath, "angularPage");
+    }
+
+    public static String getAngularAppDemoPageUrl() {
+        return PropertiesUtils.getProperty(urlPath, "angularAppDemoPage");
     }
 
     public static String getLoginPageUrl() {
