@@ -1,0 +1,16 @@
+AutoIT is a tool used to automate things outside browser example: choosing file to upload from your computer.
+
+You can make there simple scripts to automate different behaviours.
+
+1. Download program from AutoIt page.
+2. Use Au3Info_x64.exe program to record window components.
+3. Build a script using SciTE.
+    Example script:
+    ControlFocus("Open", "", "Edit1")
+    ControlSetText("Open", "", "Edit1", "[FILE_PATH]")
+    ControlClick("Open", "", "Button1")
+
+4. Save with .au3 extension.
+5. Convert file into .exe by compiling .au3.
+6. Execute .exe file using Runtime class in automation.
+    Runtime.getRuntime().exec("[SCRIPT_EXE_PATH]")
