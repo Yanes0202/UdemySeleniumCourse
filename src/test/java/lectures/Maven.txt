@@ -1,20 +1,28 @@
-I. System property using maven command:
+Here I will pass few important maven commands.
+
+Link to the documentation of useful maven plugin https://maven.apache.org/surefire/maven-surefire-plugin/
+
+I. Basic commands:
+
+mvn clean - clears previous builds
+
+maven compile - checks syntax errors in the whole project
+
+mvn test - checks dependencies and if all jars are included in local repository (if we use surefire plugin then it runs all tests)
+
+mvn -Dtest=[TEST_FILE_NAME] test
+
+
+
+II. System property using maven command:
 
 mvn -D[PROPERTY_NAME]=[PROPERTY_VALUE]
 
-Example:
+Examples:
 command:
 mvn -Dbrowser=chrome
 code:
 String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : PropertiesUtils.getProperty(propertiesFilePath, "browser")
-
-
-
-
-
-
-
-
 
 * To run TESTNG tests suits using maven commands, you need to add plugin in pom.xml file:
 

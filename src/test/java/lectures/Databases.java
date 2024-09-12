@@ -9,7 +9,6 @@ import java.sql.SQLException;
 
 public class Databases {
 
-
     @Test
     void dbConnectionTest() throws SQLException {
         ResultSet resultSet = DbConnector.executeQuery("Select * from employeeinfo");
